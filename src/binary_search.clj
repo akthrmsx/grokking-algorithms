@@ -15,6 +15,6 @@
           :else mid))
       -1)))
 
-(assert (binary-search [1 3 5 7 9] 3) 1)
+(assert (= (binary-search [1 3 5 7 9] 3) 1))
 
-(assert (binary-search [1 3 5 7 9] -1) -1)
+(assert (= (binary-search [1 3 5 7 9] -1) -1))
