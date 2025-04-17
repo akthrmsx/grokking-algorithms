@@ -4,3 +4,6 @@
   (-> (/ num div)
       Math/floor
       int))
+
+(defn remove-by-index [coll idx]
+  (into (subvec coll 0 idx) (subvec coll (inc idx))))
