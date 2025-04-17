@@ -14,10 +14,10 @@
 (defn selection-sort [coll]
   (loop [coll coll
          sorted-coll []]
-    (let [smallest-idx (find-smallest-index coll)]
-      (if (seq coll)
+    (if (seq coll)
+      (let [smallest-idx (find-smallest-index coll)]
         (recur (remove-by-index coll smallest-idx)
-               (conj sorted-coll (coll smallest-idx)))
-        sorted-coll))))
+               (conj sorted-coll (coll smallest-idx))))
+      sorted-coll)))
 
 (assert (= (selection-sort [5 3 6 2 10]) [2 3 5 6 10]))
