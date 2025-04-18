@@ -6,4 +6,5 @@
       int))
 
 (defn remove-by-index [coll idx]
-  (into (subvec coll 0 idx) (subvec coll (inc idx))))
+  (into [] (concat (take idx coll)
+                   (drop (inc idx) coll))))
