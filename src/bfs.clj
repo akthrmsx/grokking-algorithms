@@ -4,12 +4,12 @@
 (defn bfs [graph start pred]
   (loop [queue (apply conj PersistentQueue/EMPTY (get graph start))
          searched #{}]
-    (if-let [target (peek queue)]
-      (if (not (contains? searched target))
-        (if (pred target)
-          target
-          (recur (apply conj (pop queue) (get graph target))
-                 (conj searched target)))
+    (if-let [top (peek queue)]
+      (if (not (contains? searched top))
+        (if (pred top)
+          top
+          (recur (apply conj (pop queue) (get graph top))
+                 (conj searched top)))
         (recur (pop queue) searched))
       nil)))
 
